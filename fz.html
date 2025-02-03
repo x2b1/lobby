@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Odliczanie do ferii</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="odliczania.css" />
+    <link rel="icon" href="favicon.ico" />
+    <script>
+      function calculateTimeUntilNewYear() {
+        const now = new Date();
+        const nextYear = now.getFullYear();
+        const newYear = new Date(nextYear, 0, 20);
+        const timeDiff = newYear - now;
+
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+        const milliseconds = timeDiff % 1000;
+
+        document.getElementById("countdown").textContent = `te ferie beda za:
+        ${days}D ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;
+
+        druga();
+      }
+
+      function druga() {
+        const now = new Date();
+        const nextYear = now.getFullYear() + 1;
+        const newYear = new Date(nextYear, 0, 20);
+        const timeDiff = newYear - now;
+
+        const d = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const h = Math.floor(
+          (timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const m = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((timeDiff % (1000 * 60)) / 1000);
+        const ms = timeDiff % 1000;
+
+        document.getElementById(
+          "druga"
+        ).textContent = `kolejne ferie za: ${d}D ${h}h ${m}m ${s}s ${ms}ms`;
+      }
+
+      setInterval(calculateTimeUntilNewYear, 1);
+    </script>
+  </head>
+  <body onload="calculateTimeUntilNewYear()">
+    <h1 id="countdown"></h1>
+    <br />
+    <h1 id="druga"></h1>
+  </body>
+</html>

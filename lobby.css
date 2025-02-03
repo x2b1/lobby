@@ -1,0 +1,95 @@
+header img {
+  width: 350px !important;
+  height: 350px !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out;
+}
+
+header img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px 10px #8b0000;
+  background: linear-gradient(to right, red, transparent, red);
+}
+
+body {
+  background-image: url(b.jpg) !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header p {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: red;
+  animation: sparkle 1s infinite alternate, colorChange 2s infinite;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+    0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes sparkle {
+  0% {
+    text-shadow: 0 0 5px rgba(139, 0, 0, 0.5), 0 0 10px rgba(139, 0, 0, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(139, 0, 0, 0.8), 0 0 20px rgba(139, 0, 0, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(139, 0, 0, 0.5), 0 0 10px rgba(139, 0, 0, 0.5);
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    color: rgb(65, 6, 6);
+  }
+  100% {
+    color: black;
+  }
+}
+div {
+  text-align: center;
+  margin-top: 5px;
+}
+div p {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 10px;
+  text-decoration: none;
+  color: red;
+  transition: color 0.5s ease-in-out;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+div p:hover {
+  color: crimson;
+  transform: scale(1.1);
+}
+
+@keyframes colorTransition {
+  0% {
+    color: red;
+  }
+  25% {
+    color: rgb(211, 0, 42);
+  }
+  50% {
+    color: rgb(145, 0, 0);
+  }
+  75% {
+    color: rgb(95, 0, 0);
+  }
+  100% {
+    color: rgb(46, 0, 0);
+  }
+}
+
+div p {
+  animation: colorTransition 2s infinite ease-in-out;
+}
